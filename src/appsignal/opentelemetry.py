@@ -115,6 +115,8 @@ def start_opentelemetry(config: Config) -> None:
             "OTEL_INSTRUMENTATION_HTTP_CAPTURE_HEADERS_SERVER_REQUEST"
         ] = request_headers
 
+    os.environ["OTEL_EXPORTER_OTLP_TRACES_HEADERS"] = "authorization=Bearer%20PUSH_API_KEY_HERE"
+
     opentelemetry_port = config.option("opentelemetry_port")
     _start_opentelemetry_tracer(opentelemetry_port)
     _start_opentelemetry_metrics(opentelemetry_port)
@@ -124,7 +126,7 @@ def start_opentelemetry(config: Config) -> None:
 
 def _start_opentelemetry_tracer(opentelemetry_port: str | int) -> None:
     otlp_exporter = OTLPSpanExporter(
-        endpoint=f"http://localhost:{opentelemetry_port}/v1/traces"
+        endpoint="https://error-tracker.staging.lol/opentelemetry/v1/traces?name=python/django4-celery&environment=development"
     )
     exporter_processor = BatchSpanProcessor(otlp_exporter)
     provider = TracerProvider()
