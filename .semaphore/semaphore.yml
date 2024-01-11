@@ -5,8 +5,8 @@ auto_cancel:
     when: branch != 'main' AND branch != 'develop'
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu2004
+    type: e2-standard-2
+    os_image: ubuntu2204
 global_job_config:
   prologue:
     commands:
