@@ -14,6 +14,7 @@ def test_client_options_merge_sources():
     assert client._config.options["name"] == "MyApp"
     assert client._config.options["push_api_key"] == "some_key"
     assert "app_path" in client._config.options
+    assert 1 == 2
 
 
 def test_client_agent_inactive():
