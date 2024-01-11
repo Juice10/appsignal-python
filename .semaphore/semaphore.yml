@@ -20,10 +20,10 @@ blocks:
     jobs:
     - name: Style
       commands:
-      - "hatch run lint:style"
+      - "hatch -v run lint:style"
     - name: Typing
       commands:
-      - "hatch run lint:typing"
+      - "hatch -v run lint:typing"
     - name: Git Lint (Lintje)
       commands:
       - script/lint_git
@@ -43,16 +43,16 @@ blocks:
     - name: Python 3.8
       commands:
       - "sem-version python 3.8"
-      - "hatch run test.py38:pytest"
+      - "hatch -v run test.py38:pytest"
     - name: Python 3.9
       commands:
       - "sem-version python 3.9"
-      - "hatch run test.py39:pytest"
+      - "hatch -v run test.py39:pytest"
     - name: Python 3.10
       commands:
       - "sem-version python 3.10"
-      - "hatch run test.py310:pytest"
+      - "hatch -v run test.py310:pytest"
     - name: Python 3.11
       commands:
       - "sem-version python 3.11"
-      - "hatch run test.py311:pytest"
+      - "hatch -v run test.py311:pytest"
